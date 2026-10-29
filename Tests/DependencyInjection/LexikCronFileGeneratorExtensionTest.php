@@ -123,7 +123,10 @@ class LexikCronFileGeneratorExtensionTest extends TestCase
             'kernel.root_dir' => __DIR__,
             'kernel.project_dir' => __DIR__,
             'kernel.build_dir' => __DIR__,
+            'kernel.share_dir' => __DIR__,
             'kernel.runtime_environment' => 'test',
+            'kernel.runtime_mode.web' => false,
+            'kernel.runtime_mode.cli' => true,
             'kernel.charset' => 'UTF-8',
             'kernel.environment' => 'test',
             'kernel.debug' => false,
@@ -134,6 +137,10 @@ class LexikCronFileGeneratorExtensionTest extends TestCase
                 'LexikCronFileGeneratorBundle' => LexikCronFileGeneratorBundle::class,
             ],
             'env(base64:default::SYMFONY_DECRYPTION_SECRET)' => 'dummy',
+            'env(bool:default::SYMFONY_TRUST_X_SENDFILE_TYPE_HEADER)' => false,
+            'env(default::SYMFONY_TRUSTED_HOSTS)' => [],
+            'env(default::SYMFONY_TRUSTED_HEADERS)' => [],
+            'env(default::SYMFONY_TRUSTED_PROXIES)' => null,
         ]));
 
         $container->set(
